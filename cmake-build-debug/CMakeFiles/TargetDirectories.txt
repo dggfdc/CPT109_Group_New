@@ -1,0 +1,8 @@
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/CPT109_CW.dir
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/test_planet_manager.dir
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/test_researcher_manager.dir
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/test_search_manager.dir
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/test_statics_manager.dir
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/test_user_manager.dir
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/FILES/CLion/CPT109_CW/cmake-build-debug/CMakeFiles/rebuild_cache.dir

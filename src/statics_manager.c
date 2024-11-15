@@ -94,26 +94,4 @@ void displayAllPlanets(Planet planets[], int numPlanets) {
         printf("Type: %s, Size: %.2lf, Distance from Star: %.2lf AU\n", planets[i].type, planets[i].size, planets[i].distanceFromStar);
     }
 }
-int main() {
-    Planet planets[5] = {
-        {"Earth", "Terrestrial", 12742.0, 1.0},
-        {"Mars", "Terrestrial", 6779.0, 1.52},
-        {"Jupiter", "Gas Giant", 139820.0, 5.2},
-        {"Saturn", "Gas Giant", 116460.0, 9.58},
-        {"Neptune", "Ice Giant", 49528.0, 30.07}
-    };
 
-    int numPlanets = 5;
-
-    // 搜索行星
-    char searchName[50];
-    printf("Enter the name of the planet to search: ");
-    scanf("%s", searchName);
-    searchPlanetByName(planets, numPlanets, searchName); //传入参数为 1.行星数组 2.数组的长度 3.要搜索行星的名称
-
-    // 显示所有行星信息
-    printf("\nDisplaying all planets:\n");
-    displayAllPlanets(planets, numPlanets);
-
-    return 0;
-}

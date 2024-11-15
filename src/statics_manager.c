@@ -3,95 +3,197 @@
 #include <tgmath.h>
 #include "statics_manager.h"
 
-// 按名称搜索行星
-void searchPlanetByName(Planet planets[], int numPlanets, const char* name) {
+// 按名称搜索恒星
+void searchPlanetByName(const char *filename, const char* name)
+{
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL)
+    {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    Planet planet;
     int found = 0;
-    for (int i = 0; i < numPlanets; i++) {
-        if (strcmp(planets[i].name, name) == 0) {
-            printf("Found Planet: %s\n", planets[i].name);
-            printf("Type: %s\n", planets[i].type);
-            printf("Size: %.2lf\n", planets[i].size);
-            printf("Distance from Star: %.2lf AU\n", planets[i].distanceFromStar);
+    while (fread(&planet, sizeof(Planet), 1, file) == 1)
+    {
+        if (strcmp(planet.name, name) == 0)
+        {
+            printf("Found Planet: %s\n", planet.name);
+            printf("Type: %s\n", planet.type);
+            printf("Size: %.2lf\n", planet.size);
+            printf("Distance from Star: %.2lf AU\n", planet.distanceFromStar);
             found = 1;
             break;
         }
     }
-    if (!found) {
+
+    if (!found)
+    {
         printf("Planet not found.\n");
     }
+
+    fclose(file);
 }
 
-// 按类型搜索行星
-void searchPlanetType(Planet planets[], int numPlanets, const char* type) {
+// 按类型搜索恒星
+void searchPlanetType(const char *filename, const char* type)
+{
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL)
+    {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    Planet planet;
     int found = 0;
-    for (int i = 0; i < numPlanets; i++) {
-        if (strcmp(planets[i].type, type) == 0) {
-            printf("Found Planet: %s\n", planets[i].name);
-            printf("Type: %s\n", planets[i].type);
-            printf("Size: %.2lf\n", planets[i].size);
-            printf("Distance from Star: %.2lf AU\n", planets[i].distanceFromStar);
+    while (fread(&planet, sizeof(Planet), 1, file) == 1)
+    {
+        if (strcmp(planet.type, type) == 0)
+        {
+            printf("Found Planet: %s\n", planet.name);
+            printf("Type: %s\n", planet.type);
+            printf("Size: %.2lf\n", planet.size);
+            printf("Distance from Star: %.2lf AU\n", planet.distanceFromStar);
             found = 1;
-            break;
         }
     }
-    if (!found) {
+
+    if (!found)
+    {
         printf("Planet not found.\n");
     }
+
+    fclose(file);
 }
 
-// 按尺寸搜索行星
+// 按行星尺寸搜索行星
 // 结果会输出最接近输入的行星
-void searchPlanetBySize(Planet planets[], int numPlanets, double size) {
-    double minDiff = __DBL_MAX__;  // 设置一个很大的初始差值
-    int closestIndex = -1;
+// void searchPlanetBySize(const char *filename, double size)
+// {
+//     FILE *file = fopen(filename, "rb");
+//     if (file == NULL)
+//     {
+//         printf("Error opening file for reading.\n");
+//         return;
+//     }
+//
+//     Planet planet;
+//     int found = 0;
+//     while (fread(&planet, sizeof(Planet), 1, file) == 1)
+//     {
+//         if (planet.size >= size)
+//         {
+//             printf("Found Planet: %s\n", planet.name);
+//             printf("Type: %s\n", planet.type);
+//             printf("Size: %.2lf\n", planet.size);
+//             printf("Distance from Star: %.2lf AU\n", planet.distanceFromStar);
+//             found = 1;
+//         }
+//     }
+//
+//     if (!found) {
+//         printf("No planets found with size greater than or equal to %.2lf.\n", size);
+//     }
+//
+//     fclose(file);
+// }
 
-    for (int i = 0; i < numPlanets; i++) {
-        double diff = fabs(planets[i].size - size);  // 计算尺寸差的绝对值
-        if (diff < minDiff) {
-            minDiff = diff;
-            closestIndex = i;
+void searchPlanetBySize(const char *filename, double size)
+{
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL)
+    {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    Planet planet;
+    Planet closestPlanet;
+    double closestDifference = -1;
+    int found = 0;
+
+    while (fread(&planet, sizeof(Planet), 1, file) == 1)
+    {
+        double difference = fabs(planet.size - size);
+        if (!found || difference < closestDifference)
+        {
+            closestPlanet = planet;
+            closestDifference = difference;
+            found = 1;
         }
     }
 
-    if (closestIndex != -1) {
-        printf("Closest Planet by Size: %s\n", planets[closestIndex].name);
-        printf("Type: %s\n", planets[closestIndex].type);
-        printf("Size: %.2lf\n", planets[closestIndex].size);
-        printf("Distance from Star: %.2lf AU\n", planets[closestIndex].distanceFromStar);
-    } else {
-        printf("No planets found.\n");
+    if (found)
+    {
+        printf("Closest Planet: %s\n", closestPlanet.name);
+        printf("Type: %s\n", closestPlanet.type);
+        printf("Size: %.2lf\n", closestPlanet.size);
+        printf("Distance from Star: %.2lf AU\n", closestPlanet.distanceFromStar);
     }
+    else
+    {
+        printf("No planets found in the file.\n");
+    }
+
+    fclose(file);
 }
 
 // 按行星到恒星的距离搜索行星
 // 结果会输出最接近输入的行星
-void searchPlanetByDistance(Planet planets[], int numPlanets, double distance) {
-    double minDiff = __DBL_MAX__;  // 设置一个很大的初始差值
-    int closestIndex = -1;
+void searchPlanetByDistance(const char *filename, double distance)
+{
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL)
+    {
+        printf("Error opening file for reading.\n");
+        return;
+    }
 
-    for (int i = 0; i < numPlanets; i++) {
-        double diff = fabs(planets[i].distanceFromStar - distance);  // 计算距离差的绝对值
-        if (diff < minDiff) {
-            minDiff = diff;
-            closestIndex = i;
+    Planet planet;
+    int found = 0;
+    while (fread(&planet, sizeof(Planet), 1, file) == 1)
+    {
+        if (planet.distanceFromStar >= distance)
+        {
+            printf("Found Planet: %s\n", planet.name);
+            printf("Type: %s\n", planet.type);
+            printf("Size: %.2lf\n", planet.size);
+            printf("Distance from Star: %.2lf AU\n", planet.distanceFromStar);
+            found = 1;
         }
     }
 
-    if (closestIndex != -1) {
-        printf("Closest Planet by Distance: %s\n", planets[closestIndex].name);
-        printf("Type: %s\n", planets[closestIndex].type);
-        printf("Size: %.2lf\n", planets[closestIndex].size);
-        printf("Distance from Star: %.2lf AU\n", planets[closestIndex].distanceFromStar);
-    } else {
-        printf("No planets found.\n");
+    if (!found)
+    {
+        printf("No planets found with distance greater than or equal to %.2lf AU.\n", distance);
     }
+
+    fclose(file);
 }
 
 // 显示所有行星信息
-void displayAllPlanets(Planet planets[], int numPlanets) {
-    for (int i = 0; i < numPlanets; i++) {
-        printf("Planet %d: %s\n", i + 1, planets[i].name);
-        printf("Type: %s, Size: %.2lf, Distance from Star: %.2lf AU\n", planets[i].type, planets[i].size, planets[i].distanceFromStar);
+void displayAllPlanets(const char *filename)
+{
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL)
+    {
+        printf("Error opening file for reading.\n");
+        return;
     }
+
+    Planet planet;
+    printf("\nDisplaying all planets:\n");
+    while (fread(&planet, sizeof(Planet), 1, file) == 1)
+    {
+        printf("Name: %s\n", planet.name);
+        printf("Type: %s\n", planet.type);
+        printf("Size: %.2lf km\n", planet.size);
+        printf("Distance from Star: %.2lf AU\n", planet.distanceFromStar);
+        printf("\n");
+    }
+
+    fclose(file);
 }
 

@@ -19,17 +19,19 @@ void displayMenu();
 int main()
 {
     // 初始5个行星数据
-    Planet initialPlanets[5] = {
-        {"Earth", "Terrestrial", 1.0, 1.0},
-        {"Mars", "Terrestrial", 0.107, 1.52},
-        {"Jupiter", "Gas Giant", 318.0, 5.2},
-        {"Saturn", "Gas Giant", 95.0, 9.58},
-        {"Venus", "Terrestrial", 0.815, 0.72}
+    Planet initialPlanets[5] =
+    {
+        {"Earth", "Terrestrial", 12742, 1.0},
+        {"Mars", "Terrestrial", 6779, 1.52},
+        {"Jupiter", "Gas Giant", 139820, 5.2},
+        {"Saturn", "Gas Giant", 116460, 9.58},
+        {"Venus", "Terrestrial", 12104.0, 0.72}
     };
 
     // 将初始数据写入文件（每次运行会覆盖）
-    FILE *file = fopen("planets_data", "wb");
-    if (file == NULL) {
+    FILE *file = fopen("planets.dat", "wb");
+    if (file == NULL)
+    {
         printf("无法打开文件\n");
         exit(1);
     }
@@ -38,12 +40,14 @@ int main()
 
     int choice;
 
-    do {
+    do
+    {
         displayMenu();  // 显示主菜单
         printf("Enter your choice (1-5, 0 to exit): ");
         scanf("%d", &choice);
 
-        switch (choice) {
+        switch (choice)
+        {
             case 1:
                 managePlanetInfo();
                 break;
@@ -71,7 +75,8 @@ int main()
 }
 
 // 显示主菜单
-void displayMenu() {
+void displayMenu()
+{
     printf("\n--- Main Menu ---\n");
     printf("1. Manage Planet Information\n");
     printf("2. View Statistics\n");
@@ -107,25 +112,69 @@ void searchAndInspectPlanets()
 {
     printf("\nYou have entered the Search and Inspect Planets module.\n");
     // 这里可以进一步实现搜索和检查行星的功能，如按名称、类型等进行搜索
-    Planet planets[5] = {
-        {"Earth", "Terrestrial", 12742.0, 1.0},
-        {"Mars", "Terrestrial", 6779.0, 1.52},
-        {"Jupiter", "Gas Giant", 139820.0, 5.2},
-        {"Saturn", "Gas Giant", 116460.0, 9.58},
-        {"Neptune", "Ice Giant", 49528.0, 30.07}
-    };
 
-    int numPlanets = 5;
+    // 用户选择搜索类型
+    int choice;
+    printf("Choose search criteria:\n");
+    printf("1. Search by Name\n");
+    printf("2. Search by Type\n");
+    printf("3. Search by Size\n");
+    printf("4. Search by Distance from Sun\n");
+    printf("Enter your choice (1-4): ");
+    scanf("%d", &choice);
 
-    // 搜索行星
-    char searchName[50];
-    printf("Enter the name of the planet to search: ");
-    scanf("%s", searchName);
-    searchPlanetByName(planets, numPlanets, searchName); //传入参数为 1.行星数组 2.数组的长度 3.要搜索行星的名称
+    switch (choice)
+    {
+        case 1:
+        {
+            // 根据行星名称搜索
+            char searchName[50];
+            printf("Enter the name of the planet to search: ");
+            scanf("%s", searchName);
+            searchPlanetByName("planets.dat", searchName);
+            break;
+        }
+        case 2:
+        {
+            // 根据行星类型搜索
+            char searchType[50];
+            printf("Enter the type of the planet to search (e.g., Terrestrial, Gas Giant, Ice Giant): ");
+            scanf("%s", searchType);
+            searchPlanetType("planets.dat", searchType);
+            break;
+        }
+        case 3:
+        {
+            // 根据行星大小搜索
+            double searchSize;
+            printf("Enter the closest size of the planet to search (in km): ");
+            scanf("%lf", &searchSize);
+            searchPlanetBySize("planets.dat", searchSize);
+            break;
+        }
+        case 4:
+        {
+            // 根据行星距离搜索
+            double searchDistance;
+            printf("Enter the minimum distance from the sun to search (in AU): ");
+            scanf("%lf", &searchDistance);
+            searchPlanetByDistance("planets.dat", searchDistance);
+            break;
+        }
+        default:
+            printf("Invalid choice. Please enter a number between 1 and 4.\n");
+    }
 
     // 显示所有行星信息
     printf("\nDisplaying all planets:\n");
-    displayAllPlanets(planets, numPlanets);
+    int display_choice;
+    printf("1. Display all information\n");
+    printf("2. Do not display all information\n");
+    scanf("%d", &display_choice);
+    if (display_choice == 1)
+    {
+        displayAllPlanets("planets.dat");
+    }
 }
 
 // 客户管理模块

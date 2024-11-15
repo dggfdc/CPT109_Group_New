@@ -18,25 +18,55 @@ void displayMenu();
 
 int main()
 {
+    // // 初始5个行星数据
+    // Planet initialPlanets[5] =
+    // {
+    //     {"Earth", "Terrestrial", 12742, 1.0,1 , 1, 1},
+    //     {"Mars", "Terrestrial", 6779, 1.52,1 , 1, 1},
+    //     {"Jupiter", "Gas Giant", 139820, 5.2,1 , 1, 1},
+    //     {"Saturn", "Gas Giant", 116460, 9.58,1 , 1, 1},
+    //     {"Venus", "Terrestrial", 12104.0, 0.72,1 , 1, 1}
+    // };
+    //
+    // // 将初始数据写入文件（每次运行会覆盖）
+    // FILE *file = fopen("planets.dat", "wb");
+    // if (file == NULL)
+    // {
+    //     printf("无法打开文件\n");
+    //     exit(1);
+    // }
+    // fwrite(initialPlanets, sizeof(Planet), 5, file);
+    // fclose(file);
+
     // 初始5个行星数据
-    Planet initialPlanets[5] =
-    {
-        {"Earth", "Terrestrial", 12742, 1.0},
-        {"Mars", "Terrestrial", 6779, 1.52},
-        {"Jupiter", "Gas Giant", 139820, 5.2},
-        {"Saturn", "Gas Giant", 116460, 9.58},
-        {"Venus", "Terrestrial", 12104.0, 0.72}
+    Planet initialPlanets[5] = {
+        {"Earth", "Terrestrial", 12742, 1.0, 1, 1, 1},
+        {"Mars", "Terrestrial", 6779, 1.52, 1, 1, 1},
+        {"Jupiter", "Gas Giant", 139820, 5.2, 1, 1, 1},
+        {"Saturn", "Gas Giant", 116460, 9.58, 1, 1, 1},
+        {"Venus", "Terrestrial", 12104.0, 0.72, 1, 1, 1}
     };
 
-    // 将初始数据写入文件（每次运行会覆盖）
-    FILE *file = fopen("planets.dat", "wb");
+    // 检查文件是否存在，如果不存在则写入初始数据
+    FILE *file = fopen("planets.dat", "rb");
     if (file == NULL)
     {
-        printf("无法打开文件\n");
-        exit(1);
+        // 文件不存在，写入初始数据
+        file = fopen("planets.dat", "wb");
+        if (file == NULL)
+        {
+            printf("无法打开文件\n");
+            exit(1);
+        }
+        fwrite(initialPlanets, sizeof(Planet), 5, file);
+        printf("Initial planet data written to file successfully.\n");
+        fclose(file);
     }
-    fwrite(initialPlanets, sizeof(Planet), 5, file);
-    fclose(file);
+    else
+    {
+        // 文件存在，直接关闭
+        fclose(file);
+    }
 
     int choice;
 

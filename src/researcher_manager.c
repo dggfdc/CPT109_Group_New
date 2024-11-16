@@ -1,41 +1,35 @@
+#include "researcher_manager.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-// ¶¨Òå½á¹¹ÌåÓÃÓÚ´æ´¢ÑĞ¾¿ÈËÔ±ĞÅÏ¢
-typedef struct {
-    int account_number;
-    char name[50];
-    char email[50];
-} Researcher;
-
-// ÓÃÓÚÑİÊ¾µÄÄ£ÄâÊı¾İ
+// ç”¨äºæ¼”ç¤ºçš„æ¨¡æ‹Ÿæ•°æ®
 Researcher researchers[100];
 int researcher_count = 0;
 
-// ×¢²áĞÂÑĞ¾¿ÈËÔ±µÄº¯Êı
+// æ³¨å†Œæ–°ç ”ç©¶äººå‘˜çš„å‡½æ•°
 void register_researcher(int account_number, char* name, char* email) {
     researchers[researcher_count].account_number = account_number;
     strcpy(researchers[researcher_count].name, name);
     strcpy(researchers[researcher_count].email, email);
     researcher_count++;
-    printf("ÑĞ¾¿ÈËÔ± %s ÒÑ³É¹¦×¢²á£¬ÕË»§ºÅÎª %d¡£\n", name, account_number);
+    printf("ç ”ç©¶äººå‘˜ %s å·²æˆåŠŸæ³¨å†Œï¼Œè´¦æˆ·å·ä¸º %dã€‚\n", name, account_number);
 }
 
-// ±à¼­ÑĞ¾¿ÈËÔ±ÏêÏ¸ĞÅÏ¢µÄº¯Êı
+// ç¼–è¾‘ç ”ç©¶äººå‘˜è¯¦ç»†ä¿¡æ¯çš„å‡½æ•°
 void edit_researcher_details(int account_number, char* new_name, char* new_email) {
     for (int i = 0; i < researcher_count; i++) {
         if (researchers[i].account_number == account_number) {
             strcpy(researchers[i].name, new_name);
             strcpy(researchers[i].email, new_email);
-            printf("ÑĞ¾¿ÈËÔ±ÏêÏ¸ĞÅÏ¢ÒÑ³É¹¦¸üĞÂ¡£\n");
+            printf("ç ”ç©¶äººå‘˜è¯¦ç»†ä¿¡æ¯å·²æˆåŠŸæ›´æ–°ã€‚\n");
             return;
         }
     }
-    printf("Î´ÕÒµ½ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±¡£\n", account_number);
+    printf("æœªæ‰¾åˆ°è´¦æˆ·å·ä¸º %d çš„ç ”ç©¶äººå‘˜ã€‚\n", account_number);
 }
 
-// É¾³ıÑĞ¾¿ÈËÔ±ÕË»§µÄº¯Êı
+// åˆ é™¤ç ”ç©¶äººå‘˜è´¦æˆ·çš„å‡½æ•°
 void delete_researcher(int account_number) {
     for (int i = 0; i < researcher_count; i++) {
         if (researchers[i].account_number == account_number) {
@@ -43,78 +37,22 @@ void delete_researcher(int account_number) {
                 researchers[j] = researchers[j + 1];
             }
             researcher_count--;
-            printf("ÑĞ¾¿ÈËÔ±ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±ÒÑ³É¹¦É¾³ı¡£\n", account_number);
+            printf("ç ”ç©¶äººå‘˜è´¦æˆ·å·ä¸º %d çš„ç ”ç©¶äººå‘˜å·²æˆåŠŸåˆ é™¤ã€‚\n", account_number);
             return;
         }
     }
-    printf("Î´ÕÒµ½ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±¡£\n", account_number);
+    printf("æœªæ‰¾åˆ°è´¦æˆ·å·ä¸º %d çš„ç ”ç©¶äººå‘˜ã€‚\n", account_number);
 }
 
-// ²é¿´ÑĞ¾¿ÈËÔ±»î¶¯ºÍ¹±Ï×µÄº¯Êı
+// æŸ¥çœ‹ç ”ç©¶äººå‘˜æ´»åŠ¨å’Œè´¡çŒ®çš„å‡½æ•°
 void view_researcher_contributions(int account_number) {
     for (int i = 0; i < researcher_count; i++) {
         if (researchers[i].account_number == account_number) {
-            printf("ÑĞ¾¿ÈËÔ± %s (ÕË»§ºÅ: %d) µÄ»î¶¯ºÍ¹±Ï×:\n", researchers[i].name, account_number);
-            // ´Ë´¦¿ÉÒÔ¼ÓÈë²é¿´¾ßÌå»î¶¯ºÍ¹±Ï×µÄÂß¼­
-            printf("ÔİÎ´¼ÇÂ¼¾ßÌå¹±Ï×Êı¾İ¡£\n");
+            printf("ç ”ç©¶äººå‘˜ %s (è´¦æˆ·å·: %d) çš„æ´»åŠ¨å’Œè´¡çŒ®:\n", researchers[i].name, account_number);
+            // æ­¤å¤„å¯ä»¥åŠ å…¥æŸ¥çœ‹å…·ä½“æ´»åŠ¨å’Œè´¡çŒ®çš„é€»è¾‘
+            printf("æš‚æœªè®°å½•å…·ä½“è´¡çŒ®æ•°æ®ã€‚\n");
             return;
         }
     }
-    printf("Î´ÕÒµ½ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±¡£\n", account_number);
-}
-
-// ¹ÜÀíÑĞ¾¿ÈËÔ±ÕË»§µÄÖ÷²Ëµ¥º¯Êı
-void manageResearcherAccounts() {
-    int choice;
-    int account_number;
-    char name[50];
-    char email[50];
-
-    do {
-        printf("\n---- ÑĞ¾¿ÈËÔ±ÕË»§¹ÜÀí ----\n");
-        printf("1. Ìí¼ÓÑĞ¾¿ÈËÔ±\n");
-        printf("2. ±à¼­ÑĞ¾¿ÈËÔ±\n");
-        printf("3. É¾³ıÑĞ¾¿ÈËÔ±\n");
-        printf("4. ²é¿´ÑĞ¾¿ÈËÔ±»î¶¯ºÍ¹±Ï×\n");
-        printf("5. ÍË³ö\n");
-        printf("ÇëÑ¡Ôñ²Ù×÷: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-        case 1:
-            printf("ÊäÈëÕË»§ºÅ: ");
-            scanf("%d", &account_number);
-            printf("ÊäÈëĞÕÃû: ");
-            scanf("%s", name);
-            printf("ÊäÈëµç×ÓÓÊ¼ş: ");
-            scanf("%s", email);
-            register_researcher(account_number, name, email);
-            break;
-        case 2:
-            printf("ÊäÈëÒª±à¼­µÄÑĞ¾¿ÈËÔ±ÕË»§ºÅ: ");
-            scanf("%d", &account_number);
-            printf("ÊäÈëĞÂĞÕÃû: ");
-            scanf("%s", name);
-            printf("ÊäÈëĞÂµç×ÓÓÊ¼ş: ");
-            scanf("%s", email);
-            edit_researcher_details(account_number, name, email);
-            break;
-        case 3:
-            printf("ÊäÈëÒªÉ¾³ıµÄÑĞ¾¿ÈËÔ±ÕË»§ºÅ: ");
-            scanf("%d", &account_number);
-            delete_researcher(account_number);
-            break;
-        case 4:
-            printf("ÊäÈëÒª²é¿´µÄÑĞ¾¿ÈËÔ±ÕË»§ºÅ: ");
-            scanf("%d", &account_number);
-            view_researcher_contributions(account_number);
-            break;
-        case 5:
-            printf("ÍË³öÑĞ¾¿ÈËÔ±ÕË»§¹ÜÀí¡£\n");
-            break;
-        default:
-            printf("ÎŞĞ§µÄÑ¡Ôñ£¬ÇëÖØĞÂÊäÈë¡£\n");
-            break;
-        }
-    } while (choice != 5);
+    printf("æœªæ‰¾åˆ°è´¦æˆ·å·ä¸º %d çš„ç ”ç©¶äººå‘˜ã€‚\n", account_number);
 }

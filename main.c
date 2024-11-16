@@ -18,26 +18,6 @@ void displayMenu();
 
 int main()
 {
-    // // 初始5个行星数据
-    // Planet initialPlanets[5] =
-    // {
-    //     {"Earth", "Terrestrial", 12742, 1.0,1 , 1, 1},
-    //     {"Mars", "Terrestrial", 6779, 1.52,1 , 1, 1},
-    //     {"Jupiter", "Gas Giant", 139820, 5.2,1 , 1, 1},
-    //     {"Saturn", "Gas Giant", 116460, 9.58,1 , 1, 1},
-    //     {"Venus", "Terrestrial", 12104.0, 0.72,1 , 1, 1}
-    // };
-    //
-    // // 将初始数据写入文件（每次运行会覆盖）
-    // FILE *file = fopen("planets.dat", "wb");
-    // if (file == NULL)
-    // {
-    //     printf("无法打开文件\n");
-    //     exit(1);
-    // }
-    // fwrite(initialPlanets, sizeof(Planet), 5, file);
-    // fclose(file);
-
     // 初始5个行星数据
     Planet initialPlanets[5] = {
         {"Earth", "Terrestrial", 12742, 1.0, 1, 1, 1},
@@ -48,7 +28,7 @@ int main()
     };
 
     // 检查文件是否存在，如果不存在则写入初始数据
-    FILE *file = fopen("planets.dat", "rb");
+    FILE* file = fopen("planets.dat", "rb");
     if (file == NULL)
     {
         // 文件不存在，写入初始数据
@@ -75,29 +55,35 @@ int main()
         displayMenu();  // 显示主菜单
         printf("Enter your choice (1-5, 0 to exit): ");
         scanf("%d", &choice);
+        getchar();  // 清理输入缓冲区，防止残留字符影响下一次输入
 
         switch (choice)
         {
-            case 1:
-                managePlanetInfo();
-                break;
-            case 2:
-                viewStatistics();
-                break;
-            case 3:
-                manageResearcherAccounts();
-                break;
-            case 4:
-                searchAndInspectPlanets();
-                break;
-            case 5:
-                manageCustomerAccounts();
-                break;
-            case 0:
-                printf("Exiting the program.\n");
-                break;
-            default:
-                printf("Invalid choice. Please enter a number between 0 and 5.\n");
+        case 1:
+            printf("You selected: Manage Planet Information\n");  // 调试信息
+            managePlanetInfo();
+            break;
+        case 2:
+            printf("You selected: View Statistics\n");  // 调试信息
+            viewStatistics();
+            break;
+        case 3:
+            printf("You selected: Manage Researcher Accounts\n");  // 调试信息
+            manageResearcherAccounts();
+            break;
+        case 4:
+            printf("You selected: Search and Inspect Planets\n");  // 调试信息
+            searchAndInspectPlanets();
+            break;
+        case 5:
+            printf("You selected: Manage Customer Accounts\n");  // 调试信息
+            manageCustomerAccounts();
+            break;
+        case 0:
+            printf("Exiting the program.\n");
+            break;
+        default:
+            printf("Invalid choice. Please enter a number between 0 and 5.\n");
         }
     } while (choice != 0);
 
@@ -152,47 +138,52 @@ void searchAndInspectPlanets()
     printf("4. Search by Distance from Sun\n");
     printf("Enter your choice (1-4): ");
     scanf("%d", &choice);
+    getchar();  // 清理输入缓冲区，防止残留字符影响下一次输入
 
     switch (choice)
     {
-        case 1:
-        {
-            // 根据行星名称搜索
-            char searchName[50];
-            printf("Enter the name of the planet to search: ");
-            scanf("%s", searchName);
-            searchPlanetByName("planets.dat", searchName);
-            break;
-        }
-        case 2:
-        {
-            // 根据行星类型搜索
-            char searchType[50];
-            printf("Enter the type of the planet to search (e.g., Terrestrial, Gas Giant, Ice Giant): ");
-            scanf("%s", searchType);
-            searchPlanetType("planets.dat", searchType);
-            break;
-        }
-        case 3:
-        {
-            // 根据行星大小搜索
-            double searchSize;
-            printf("Enter the closest size of the planet to search (in km): ");
-            scanf("%lf", &searchSize);
-            searchPlanetBySize("planets.dat", searchSize);
-            break;
-        }
-        case 4:
-        {
-            // 根据行星距离搜索
-            double searchDistance;
-            printf("Enter the minimum distance from the sun to search (in AU): ");
-            scanf("%lf", &searchDistance);
-            searchPlanetByDistance("planets.dat", searchDistance);
-            break;
-        }
-        default:
-            printf("Invalid choice. Please enter a number between 1 and 4.\n");
+    case 1:
+    {
+        // 根据行星名称搜索
+        char searchName[50];
+        printf("Enter the name of the planet to search: ");
+        scanf("%s", searchName);
+        getchar();
+        searchPlanetByName("planets.dat", searchName);
+        break;
+    }
+    case 2:
+    {
+        // 根据行星类型搜索
+        char searchType[50];
+        printf("Enter the type of the planet to search (e.g., Terrestrial, Gas Giant, Ice Giant): ");
+        scanf("%s", searchType);
+        getchar();
+        searchPlanetType("planets.dat", searchType);
+        break;
+    }
+    case 3:
+    {
+        // 根据行星大小搜索
+        double searchSize;
+        printf("Enter the closest size of the planet to search (in km): ");
+        scanf("%lf", &searchSize);
+        getchar();
+        searchPlanetBySize("planets.dat", searchSize);
+        break;
+    }
+    case 4:
+    {
+        // 根据行星距离搜索
+        double searchDistance;
+        printf("Enter the minimum distance from the sun to search (in AU): ");
+        scanf("%lf", &searchDistance);
+        getchar();
+        searchPlanetByDistance("planets.dat", searchDistance);
+        break;
+    }
+    default:
+        printf("Invalid choice. Please enter a number between 1 and 4.\n");
     }
 
     // 显示所有行星信息
@@ -201,6 +192,7 @@ void searchAndInspectPlanets()
     printf("1. Display all information\n");
     printf("2. Do not display all information\n");
     scanf("%d", &display_choice);
+    getchar();
     if (display_choice == 1)
     {
         displayAllPlanets("planets.dat");

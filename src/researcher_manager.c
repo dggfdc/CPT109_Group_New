@@ -1,160 +1,120 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+// ¶¨Òå½á¹¹ÌåÓÃÓÚ´æ´¢ÑĞ¾¿ÈËÔ±ĞÅÏ¢
+typedef struct {
+    int account_number;
+    char name[50];
+    char email[50];
+} Researcher;
+
+// ÓÃÓÚÑİÊ¾µÄÄ£ÄâÊı¾İ
+Researcher researchers[100];
+int researcher_count = 0;
+
+// ×¢²áĞÂÑĞ¾¿ÈËÔ±µÄº¯Êı
+void register_researcher(int account_number, char* name, char* email) {
+    researchers[researcher_count].account_number = account_number;
+    strcpy(researchers[researcher_count].name, name);
+    strcpy(researchers[researcher_count].email, email);
+    researcher_count++;
+    printf("ÑĞ¾¿ÈËÔ± %s ÒÑ³É¹¦×¢²á£¬ÕË»§ºÅÎª %d¡£\n", name, account_number);
+}
+
+// ±à¼­ÑĞ¾¿ÈËÔ±ÏêÏ¸ĞÅÏ¢µÄº¯Êı
+void edit_researcher_details(int account_number, char* new_name, char* new_email) {
+    for (int i = 0; i < researcher_count; i++) {
+        if (researchers[i].account_number == account_number) {
+            strcpy(researchers[i].name, new_name);
+            strcpy(researchers[i].email, new_email);
+            printf("ÑĞ¾¿ÈËÔ±ÏêÏ¸ĞÅÏ¢ÒÑ³É¹¦¸üĞÂ¡£\n");
+            return;
+        }
+    }
+    printf("Î´ÕÒµ½ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±¡£\n", account_number);
+}
+
+// É¾³ıÑĞ¾¿ÈËÔ±ÕË»§µÄº¯Êı
+void delete_researcher(int account_number) {
+    for (int i = 0; i < researcher_count; i++) {
+        if (researchers[i].account_number == account_number) {
+            for (int j = i; j < researcher_count - 1; j++) {
+                researchers[j] = researchers[j + 1];
+            }
+            researcher_count--;
+            printf("ÑĞ¾¿ÈËÔ±ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±ÒÑ³É¹¦É¾³ı¡£\n", account_number);
+            return;
+        }
+    }
+    printf("Î´ÕÒµ½ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±¡£\n", account_number);
+}
+
+// ²é¿´ÑĞ¾¿ÈËÔ±»î¶¯ºÍ¹±Ï×µÄº¯Êı
+void view_researcher_contributions(int account_number) {
+    for (int i = 0; i < researcher_count; i++) {
+        if (researchers[i].account_number == account_number) {
+            printf("ÑĞ¾¿ÈËÔ± %s (ÕË»§ºÅ: %d) µÄ»î¶¯ºÍ¹±Ï×:\n", researchers[i].name, account_number);
+            // ´Ë´¦¿ÉÒÔ¼ÓÈë²é¿´¾ßÌå»î¶¯ºÍ¹±Ï×µÄÂß¼­
+            printf("ÔİÎ´¼ÇÂ¼¾ßÌå¹±Ï×Êı¾İ¡£\n");
+            return;
+        }
+    }
+    printf("Î´ÕÒµ½ÕË»§ºÅÎª %d µÄÑĞ¾¿ÈËÔ±¡£\n", account_number);
+}
+
+// ¹ÜÀíÑĞ¾¿ÈËÔ±ÕË»§µÄÖ÷²Ëµ¥º¯Êı
 void manageResearcherAccounts() {
     int choice;
+    int account_number;
+    char name[50];
+    char email[50];
+
     do {
-        printf("\n--- Researcher Account Management ---\n");
-        printf("1. Add Researcher\n");
-        printf("2. Edit Researcher\n");
-        printf("3. Delete Researcher\n");
-        printf("4. View Researchers\n");
-        printf("5. Back to Main Menu\n");
-        printf("Enter your choice: ");
+        printf("\n---- ÑĞ¾¿ÈËÔ±ÕË»§¹ÜÀí ----\n");
+        printf("1. Ìí¼ÓÑĞ¾¿ÈËÔ±\n");
+        printf("2. ±à¼­ÑĞ¾¿ÈËÔ±\n");
+        printf("3. É¾³ıÑĞ¾¿ÈËÔ±\n");
+        printf("4. ²é¿´ÑĞ¾¿ÈËÔ±»î¶¯ºÍ¹±Ï×\n");
+        printf("5. ÍË³ö\n");
+        printf("ÇëÑ¡Ôñ²Ù×÷: ");
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1: {
-                Researcher researcher;
-                printf("Enter researcher account number: ");
-                scanf("%d", &researcher.account_number);
-                printf("Enter researcher name: ");
-                scanf("%49s", researcher.name);  // é™åˆ¶è¾“å…¥é•¿åº¦
-                researcher.contributions = 0;   // åˆå§‹è´¡çŒ®ä¸º 0
-                addResearcher(researcher);
-                break;
-            }
-            case 2: {
-                int account_number;
-                char new_name[MAX_NAME_LEN];
-                printf("Enter researcher account number to edit: ");
-                scanf("%d", &account_number);
-                printf("Enter new researcher name: ");
-                scanf("%49s", new_name);  // é™åˆ¶è¾“å…¥é•¿åº¦
-                editResearcher(account_number, new_name);
-                break;
-            }
-            case 3: {
-                int account_number;
-                printf("Enter researcher account number to delete: ");
-                scanf("%d", &account_number);
-                deleteResearcher(account_number);
-                break;
-            }
-            case 4:
-                viewResearchers();
-                break;
-            case 5:
-                printf("Returning to the main menu.\n");
-                break;
-            default:
-                printf("Invalid choice, please try again.\n");
-        }
-    } while (choice != 5);
-}
-
-// æ·»åŠ ç ”ç©¶è€…è´¦å·
-void addResearcher(Researcher researcher) {
-    FILE* file = fopen(RESEARCHER_FILE, "ab");
-    if (file == NULL) {
-        printf("Error: Unable to open file for writing.\n");
-        return;
-    }
-    fwrite(&researcher, sizeof(Researcher), 1, file);
-    fclose(file);
-    printf("Researcher %s added successfully.\n", researcher.name);
-}
-
-// ç¼–è¾‘ç ”ç©¶è€…è´¦å·
-void editResearcher(int account_number, const char* new_name) {
-    FILE* file = fopen(RESEARCHER_FILE, "rb+");
-    if (file == NULL) {
-        printf("Error: Unable to open file for updating.\n");
-        return;
-    }
-
-    Researcher researcher;
-    int found = 0;
-
-    // æœç´¢è¦ä¿®æ”¹çš„ç ”ç©¶è€…
-    while (fread(&researcher, sizeof(Researcher), 1, file) == 1) {
-        if (researcher.account_number == account_number) {
-            // æ‰¾åˆ°ç ”ç©¶è€…ï¼Œæ›´æ–°ä¿¡æ¯
-            fseek(file, -(long)sizeof(Researcher), SEEK_CUR);
-            strncpy(researcher.name, new_name, MAX_NAME_LEN);
-            fwrite(&researcher, sizeof(Researcher), 1, file);
-            found = 1;
+        case 1:
+            printf("ÊäÈëÕË»§ºÅ: ");
+            scanf("%d", &account_number);
+            printf("ÊäÈëĞÕÃû: ");
+            scanf("%s", name);
+            printf("ÊäÈëµç×ÓÓÊ¼ş: ");
+            scanf("%s", email);
+            register_researcher(account_number, name, email);
+            break;
+        case 2:
+            printf("ÊäÈëÒª±à¼­µÄÑĞ¾¿ÈËÔ±ÕË»§ºÅ: ");
+            scanf("%d", &account_number);
+            printf("ÊäÈëĞÂĞÕÃû: ");
+            scanf("%s", name);
+            printf("ÊäÈëĞÂµç×ÓÓÊ¼ş: ");
+            scanf("%s", email);
+            edit_researcher_details(account_number, name, email);
+            break;
+        case 3:
+            printf("ÊäÈëÒªÉ¾³ıµÄÑĞ¾¿ÈËÔ±ÕË»§ºÅ: ");
+            scanf("%d", &account_number);
+            delete_researcher(account_number);
+            break;
+        case 4:
+            printf("ÊäÈëÒª²é¿´µÄÑĞ¾¿ÈËÔ±ÕË»§ºÅ: ");
+            scanf("%d", &account_number);
+            view_researcher_contributions(account_number);
+            break;
+        case 5:
+            printf("ÍË³öÑĞ¾¿ÈËÔ±ÕË»§¹ÜÀí¡£\n");
+            break;
+        default:
+            printf("ÎŞĞ§µÄÑ¡Ôñ£¬ÇëÖØĞÂÊäÈë¡£\n");
             break;
         }
-    }
-
-    fclose(file);
-
-    if (found) {
-        printf("Researcher account %d updated successfully.\n", account_number);
-    } else {
-        printf("Researcher account %d not found.\n", account_number);
-    }
-}
-
-// åˆ é™¤ç ”ç©¶è€…è´¦å·
-void deleteResearcher(int account_number) {
-    FILE* file = fopen(RESEARCHER_FILE, "rb");
-    if (file == NULL) {
-        printf("Error: Unable to open file.\n");
-        return;
-    }
-
-    FILE* temp = fopen("temp_researchers.dat", "wb");
-    if (temp == NULL) {
-        printf("Error: Unable to open temporary file.\n");
-        fclose(file);
-        return;
-    }
-
-    Researcher researcher;
-    int found = 0;
-
-    // å°†ä¸éœ€è¦åˆ é™¤çš„ç ”ç©¶è€…å†™å…¥ä¸´æ—¶æ–‡ä»¶
-    while (fread(&researcher, sizeof(Researcher), 1, file) == 1) {
-        if (researcher.account_number != account_number) {
-            fwrite(&researcher, sizeof(Researcher), 1, temp);
-        } else {
-            found = 1;
-        }
-    }
-
-    fclose(file);
-    fclose(temp);
-
-    if (found) {
-        if (remove(RESEARCHER_FILE) != 0) {
-            perror("Error deleting original file");
-            return;
-        }
-        if (rename("temp_researchers.dat", RESEARCHER_FILE) != 0) {
-            perror("Error renaming temporary file");
-            return;
-        }
-        printf("Researcher account %d deleted successfully.\n", account_number);
-    } else {
-        remove("temp_researchers.dat");
-        printf("Researcher account %d not found.\n", account_number);
-    }
-}
-
-// æŸ¥çœ‹æ‰€æœ‰ç ”ç©¶è€…è´¦å·åŠå…¶è´¡çŒ®
-void viewResearchers() {
-    FILE* file = fopen(RESEARCHER_FILE, "rb");
-    if (file == NULL) {
-        printf("Error: Unable to open file for reading.\n");
-        return;
-    }
-
-    Researcher researcher;
-
-    // è¯»å–æ–‡ä»¶ä¸­çš„æ‰€æœ‰ç ”ç©¶è€…ä¿¡æ¯
-    while (fread(&researcher, sizeof(Researcher), 1, file) == 1) {
-        printf("Account Number: %d, Name: %s, Contributions: %d\n",
-               researcher.account_number, researcher.name, researcher.contributions);
-    }
-
-    fclose(file);
+    } while (choice != 5);
 }

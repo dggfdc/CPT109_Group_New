@@ -49,3 +49,112 @@ void manageResearcherAccounts() {
         }
     } while (choice != 5);
 }
+
+// 添加研究者账号
+void addResearcher(Researcher researcher) {
+    FILE* file = fopen(RESEARCHER_FILE, "ab");
+    if (file == NULL) {
+        printf("Error: Unable to open file for writing.\n");
+        return;
+    }
+    fwrite(&researcher, sizeof(Researcher), 1, file);
+    fclose(file);
+    printf("Researcher %s added successfully.\n", researcher.name);
+}
+
+// 编辑研究者账号
+void editResearcher(int account_number, const char* new_name) {
+    FILE* file = fopen(RESEARCHER_FILE, "rb+");
+    if (file == NULL) {
+        printf("Error: Unable to open file for updating.\n");
+        return;
+    }
+
+    Researcher researcher;
+    int found = 0;
+
+    // 搜索要修改的研究者
+    while (fread(&researcher, sizeof(Researcher), 1, file) == 1) {
+        if (researcher.account_number == account_number) {
+            // 找到研究者，更新信息
+            fseek(file, -(long)sizeof(Researcher), SEEK_CUR);
+            strncpy(researcher.name, new_name, MAX_NAME_LEN);
+            fwrite(&researcher, sizeof(Researcher), 1, file);
+            found = 1;
+            break;
+        }
+    }
+
+    fclose(file);
+
+    if (found) {
+        printf("Researcher account %d updated successfully.\n", account_number);
+    } else {
+        printf("Researcher account %d not found.\n", account_number);
+    }
+}
+
+// 删除研究者账号
+void deleteResearcher(int account_number) {
+    FILE* file = fopen(RESEARCHER_FILE, "rb");
+    if (file == NULL) {
+        printf("Error: Unable to open file.\n");
+        return;
+    }
+
+    FILE* temp = fopen("temp_researchers.dat", "wb");
+    if (temp == NULL) {
+        printf("Error: Unable to open temporary file.\n");
+        fclose(file);
+        return;
+    }
+
+    Researcher researcher;
+    int found = 0;
+
+    // 将不需要删除的研究者写入临时文件
+    while (fread(&researcher, sizeof(Researcher), 1, file) == 1) {
+        if (researcher.account_number != account_number) {
+            fwrite(&researcher, sizeof(Researcher), 1, temp);
+        } else {
+            found = 1;
+        }
+    }
+
+    fclose(file);
+    fclose(temp);
+
+    if (found) {
+        if (remove(RESEARCHER_FILE) != 0) {
+            perror("Error deleting original file");
+            return;
+        }
+        if (rename("temp_researchers.dat", RESEARCHER_FILE) != 0) {
+            perror("Error renaming temporary file");
+            return;
+        }
+        printf("Researcher account %d deleted successfully.\n", account_number);
+    } else {
+        remove("temp_researchers.dat");
+        printf("Researcher account %d not found.\n", account_number);
+    }
+}
+
+// 查看所有研究者账号及其贡献
+void viewResearchers() {
+    FILE* file = fopen(RESEARCHER_FILE, "rb");
+    if (file == NULL) {
+        printf("Error: Unable to open file for reading.\n");
+        return;
+    }
+
+    Researcher researcher;
+
+    // 读取文件中的所有研究者信息
+    while (fread(&researcher, sizeof(Researcher), 1, file) == 1) {
+        printf("Account Number: %d, Name: %s, Contributions: %d\n",
+               researcher.account_number, researcher.name, researcher.contributions);
+    }
+
+    fclose(file);
+}

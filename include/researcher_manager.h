@@ -1,6 +1,6 @@
 #ifndef RESEARCHER_MANAGER_H
 #define RESEARCHER_MANAGER_H
-
+#define RESEARCHER_FILE "researchers.dat"
 #define MAX_NAME_LEN 50
 
 typedef struct {

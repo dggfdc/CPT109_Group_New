@@ -45,6 +45,7 @@ int main()
     else
     {
         // 文件存在，直接关闭
+        printf("File already exists.\n");
         fclose(file);
     }
 

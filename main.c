@@ -122,6 +122,58 @@ void manageResearcherAccounts()
 {
     printf("\nYou have entered the Manage Researcher Accounts module.\n");
     // 这里可以进一步实现管理研究人员账户的功能，如添加、编辑或删除研究人员账户等
+    int choice;
+    int account_number;
+    char name[50];
+    char email[50];
+
+    do {
+        printf("\n---- 研究人员账户管理 ----\n");
+        printf("1. 添加研究人员\n");
+        printf("2. 编辑研究人员\n");
+        printf("3. 删除研究人员\n");
+        printf("4. 查看研究人员活动和贡献\n");
+        printf("5. 退出\n");
+        printf("请选择操作: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("输入账户号: ");
+            scanf("%d", &account_number);
+            printf("输入姓名: ");
+            scanf("%s", name);
+            printf("输入电子邮件: ");
+            scanf("%s", email);
+            register_researcher(account_number, name, email);
+            break;
+            case 2:
+                printf("输入要编辑的研究人员账户号: ");
+            scanf("%d", &account_number);
+            printf("输入新姓名: ");
+            scanf("%s", name);
+            printf("输入新电子邮件: ");
+            scanf("%s", email);
+            edit_researcher_details(account_number, name, email);
+            break;
+            case 3:
+                printf("输入要删除的研究人员账户号: ");
+            scanf("%d", &account_number);
+            delete_researcher(account_number);
+            break;
+            case 4:
+                printf("输入要查看的研究人员账户号: ");
+            scanf("%d", &account_number);
+            view_researcher_contributions(account_number);
+            break;
+            case 5:
+                printf("退出研究人员账户管理。\n");
+            break;
+            default:
+                printf("无效的选择，请重新输入。\n");
+            break;
+        }
+    } while (choice != 5);
 }
 
 // 搜索和检查行星模块

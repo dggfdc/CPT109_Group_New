@@ -1,6 +1,6 @@
 # ninja log v5
-29	95	7534769350710359	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c
-14	96	7534769350710359	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
+28	99	7534769651230549	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c
+13	92	7534769651176082	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
 95	189	7534693943664556	CMakeFiles/test_search_manager.dir/src/search_manager.c.obj	69275eac3572c685
 30	178	7534693943504543	CMakeFiles/CPT109_CW.dir/src/search_manager.c.obj	2c38a99e9c0d0c8d
 61	436	7534734597882608	CMakeFiles/test_statics_manager.dir/src/statics_manager.c.obj	d3f8b74546917c8c
@@ -16,5 +16,3 @@
 63	201	7534693943789644	CMakeFiles/test_planet_manager.dir/src/planet_manager.c.obj	48e444e1ffa3188d
 4	547	7534762708350459	CMakeFiles/CPT109_CW.dir/main.c.obj	ca756b825a3e5ed8
 28	431	7534734597807382	CMakeFiles/CPT109_CW.dir/src/statics_manager.c.obj	b1b5eda91a95137f
-13	92	7534769651176082	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
-28	99	7534769651230549	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c

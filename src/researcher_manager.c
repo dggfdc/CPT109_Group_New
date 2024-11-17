@@ -1,9 +1,9 @@
-#include "researcher_manager.h"
+ï»¿#include "researcher_manager.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-// ¹ÜÀíÑĞ¾¿ÈËÔ±ÕË»§Ä£¿é
+// ç®¡ç†ç ”ç©¶äººå‘˜è´¦æˆ·æ¨¡å—
 // Array of researchers and counter for storing data
 Researcher researchers[100];
 int researcher_count = 0;

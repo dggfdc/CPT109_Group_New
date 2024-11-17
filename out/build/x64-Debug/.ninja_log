@@ -1,9 +1,9 @@
 # ninja log v5
-28	99	7534769651230549	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c
-13	92	7534769651176082	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
+52	440	7535149301393506	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c
+22	439	7535149301393506	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
 95	189	7534693943664556	CMakeFiles/test_search_manager.dir/src/search_manager.c.obj	69275eac3572c685
 30	178	7534693943504543	CMakeFiles/CPT109_CW.dir/src/search_manager.c.obj	2c38a99e9c0d0c8d
-61	436	7534734597882608	CMakeFiles/test_statics_manager.dir/src/statics_manager.c.obj	d3f8b74546917c8c
+67	445	7535149301463528	CMakeFiles/test_statics_manager.dir/src/statics_manager.c.obj	d3f8b74546917c8c
 14	180	7534693943524526	CMakeFiles/CPT109_CW.dir/src/planet_manager.c.obj	1fc82e5c8939fa53
 3	266	7534762800942627	CPT109_CW.exe	b94aa5ffea261ba1
 46	184	7534693943614556	CMakeFiles/CPT109_CW.dir/src/user_manager.c.obj	f2c4f52955d9ae97
@@ -14,9 +14,9 @@
 54	184	7534693943604561	CMakeFiles/test_planet_manager.dir/tests/test_planet_manager.c.obj	925c7425c229cb6
 128	185	7534693943614556	CMakeFiles/test_user_manager.dir/src/user_manager.c.obj	cdadb570b32205d7
 63	201	7534693943789644	CMakeFiles/test_planet_manager.dir/src/planet_manager.c.obj	48e444e1ffa3188d
-4	547	7534762708350459	CMakeFiles/CPT109_CW.dir/main.c.obj	ca756b825a3e5ed8
-28	431	7534734597807382	CMakeFiles/CPT109_CW.dir/src/statics_manager.c.obj	b1b5eda91a95137f
-22	439	7535149301393506	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
-52	440	7535149301393506	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c
-67	445	7535149301463528	CMakeFiles/test_statics_manager.dir/src/statics_manager.c.obj	d3f8b74546917c8c
+4	110	7535312065775215	CMakeFiles/CPT109_CW.dir/main.c.obj	ca756b825a3e5ed8
 36	446	7535149301463528	CMakeFiles/CPT109_CW.dir/src/statics_manager.c.obj	b1b5eda91a95137f
+3	380	7535323109684906	CMakeFiles/CPT109_CW.dir/main.c.obj	ca756b825a3e5ed8
+25	371	7535336018408860	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c
+12	372	7535336018408860	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
+3	372	7535336018418856	CMakeFiles/CPT109_CW.dir/main.c.obj	ca756b825a3e5ed8

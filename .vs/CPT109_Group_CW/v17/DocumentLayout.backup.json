@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\researcher_manager.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Github\\CPT109_Group_CW\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Github\\CPT109_Group_CW\\include\\researcher_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\researcher_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Github\\CPT109_Group_CW\\src\\statics_manager.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\statics_manager.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Github\\CPT109_Group_CW\\include\\statics_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\statics_manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Github\\CPT109_Group_CW\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Github\\CPT109_Group_CW\\src\\statics_manager.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\statics_manager.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Github\\CPT109_Group_CW\\CMakeSettings.json||{10608CD5-279C-4A28-BD5F-BA2CFCE06219}",
@@ -41,11 +45,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "statics_manager.h",
+              "DocumentMoniker": "F:\\Github\\CPT109_Group_CW\\include\\statics_manager.h",
+              "RelativeDocumentMoniker": "include\\statics_manager.h",
+              "ToolTip": "F:\\Github\\CPT109_Group_CW\\include\\statics_manager.h",
+              "RelativeToolTip": "include\\statics_manager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-17T02:49:12.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CMakeSettings.json",
               "DocumentMoniker": "F:\\Github\\CPT109_Group_CW\\CMakeSettings.json",
               "RelativeDocumentMoniker": "CMakeSettings.json",
@@ -56,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "tgmath.h",
               "DocumentMoniker": "E:\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\tgmath.h",
               "ToolTip": "E:\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\tgmath.h",
@@ -66,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "launch.vs.json",
               "DocumentMoniker": "F:\\Github\\CPT109_Group_CW\\.vs\\launch.vs.json",
               "RelativeDocumentMoniker": ".vs\\launch.vs.json",
@@ -79,29 +95,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "researcher_manager.h",
               "DocumentMoniker": "F:\\Github\\CPT109_Group_CW\\include\\researcher_manager.h",
               "RelativeDocumentMoniker": "include\\researcher_manager.h",
               "ToolTip": "F:\\Github\\CPT109_Group_CW\\include\\researcher_manager.h",
               "RelativeToolTip": "include\\researcher_manager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-16T14:59:12.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "statics_manager.c",
               "DocumentMoniker": "F:\\Github\\CPT109_Group_CW\\src\\statics_manager.c",
               "RelativeDocumentMoniker": "src\\statics_manager.c",
               "ToolTip": "F:\\Github\\CPT109_Group_CW\\src\\statics_manager.c",
               "RelativeToolTip": "src\\statics_manager.c",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-11-16T14:40:10.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T14:40:10.255Z"
             },
             {
               "$type": "Document",
@@ -111,14 +126,14 @@
               "RelativeDocumentMoniker": "src\\researcher_manager.c",
               "ToolTip": "F:\\Github\\CPT109_Group_CW\\src\\researcher_manager.c",
               "RelativeToolTip": "src\\researcher_manager.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-16T14:39:38.031Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CMakeLists.txt",
               "DocumentMoniker": "F:\\Github\\CPT109_Group_CW\\CMakeLists.txt",
               "RelativeDocumentMoniker": "CMakeLists.txt",
@@ -130,13 +145,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "main.c",
               "DocumentMoniker": "F:\\Github\\CPT109_Group_CW\\main.c",
               "RelativeDocumentMoniker": "main.c",
               "ToolTip": "F:\\Github\\CPT109_Group_CW\\main.c",
               "RelativeToolTip": "main.c",
-              "ViewState": "AgIAANIAAAAAAAAAAAAAAJoAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-16T14:38:57.661Z",
               "EditorCaption": ""

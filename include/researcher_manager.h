@@ -8,6 +8,7 @@ typedef struct {
     char email[50];
 } Researcher;
 
+void manageResearcherAccounts();
 void register_researcher(int account_number, char* name, char* email);
 void edit_researcher_details(int account_number, char* new_name, char* new_email);
 void delete_researcher(int account_number);

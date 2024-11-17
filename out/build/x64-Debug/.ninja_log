@@ -16,3 +16,7 @@
 63	201	7534693943789644	CMakeFiles/test_planet_manager.dir/src/planet_manager.c.obj	48e444e1ffa3188d
 4	547	7534762708350459	CMakeFiles/CPT109_CW.dir/main.c.obj	ca756b825a3e5ed8
 28	431	7534734597807382	CMakeFiles/CPT109_CW.dir/src/statics_manager.c.obj	b1b5eda91a95137f
+22	439	7535149301393506	CMakeFiles/CPT109_CW.dir/src/researcher_manager.c.obj	f7b5906f44b8f9d1
+52	440	7535149301393506	CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj	ce3817ae55dad50c
+67	445	7535149301463528	CMakeFiles/test_statics_manager.dir/src/statics_manager.c.obj	d3f8b74546917c8c
+36	446	7535149301463528	CMakeFiles/CPT109_CW.dir/src/statics_manager.c.obj	b1b5eda91a95137f

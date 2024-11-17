@@ -118,36 +118,56 @@ void viewStatistics()
 }
 
 // 管理研究人员账户模块
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-// 定义结构体用于存储研究人员信息
+// Define Researcher structure
 typedef struct {
     int account_number;
     char name[50];
     char email[50];
 } Researcher;
 
-// 用于演示的模拟数据
+// Array of researchers and counter for storing data
 Researcher researchers[100];
 int researcher_count = 0;
 
-// 注册新研究人员的函数
+// Save researcher data to file
+void save_researchers_to_file() {
+    FILE* fp = fopen("researchers.dat", "wb");
+    if (fp == NULL) {
+        printf("Unable to save researcher data to file.\n");
+        return;
+    }
+    fwrite(researchers, sizeof(Researcher), researcher_count, fp);
+    fclose(fp);
+}
+
+// Load researcher data from file
+void load_researchers_from_file() {
+    FILE* fp = fopen("researchers.dat", "rb");
+    if (fp == NULL) {
+        printf("Data file not found, starting with empty data.\n");
+        return;
+    }
+    researcher_count = fread(researchers, sizeof(Researcher), 100, fp);
+    fclose(fp);
+}
+
+// Register a new researcher
 void register_researcher(int account_number, char* name, char* email) {
     researchers[researcher_count].account_number = account_number;
     strcpy(researchers[researcher_count].name, name);
     strcpy(researchers[researcher_count].email, email);
     researcher_count++;
+    save_researchers_to_file();  // Save data to file
     printf("Researcher %s has been successfully registered with account number %d.\n", name, account_number);
 }
 
-// 编辑研究人员详细信息的函数
+// Edit researcher details
 void edit_researcher_details(int account_number, char* new_name, char* new_email) {
     for (int i = 0; i < researcher_count; i++) {
         if (researchers[i].account_number == account_number) {
             strcpy(researchers[i].name, new_name);
             strcpy(researchers[i].email, new_email);
+            save_researchers_to_file();  // Save updated data to file
             printf("Researcher details have been successfully updated.\n");
             return;
         }
@@ -155,7 +175,7 @@ void edit_researcher_details(int account_number, char* new_name, char* new_email
     printf("Researcher with account number %d not found.\n", account_number);
 }
 
-// 删除研究人员账户的函数
+// Delete researcher account
 void delete_researcher(int account_number) {
     for (int i = 0; i < researcher_count; i++) {
         if (researchers[i].account_number == account_number) {
@@ -163,6 +183,7 @@ void delete_researcher(int account_number) {
                 researchers[j] = researchers[j + 1];
             }
             researcher_count--;
+            save_researchers_to_file();  // Save updated data to file
             printf("Researcher with account number %d has been successfully deleted.\n", account_number);
             return;
         }
@@ -170,12 +191,12 @@ void delete_researcher(int account_number) {
     printf("Researcher with account number %d not found.\n", account_number);
 }
 
-// 查看研究人员活动和贡献的函数
+// View researcher activities and contributions
 void view_researcher_contributions(int account_number) {
     for (int i = 0; i < researcher_count; i++) {
         if (researchers[i].account_number == account_number) {
             printf("Activities and contributions of researcher %s (Account number: %d):\n", researchers[i].name, account_number);
-            // 此处可以加入查看具体活动和贡献的逻辑
+            // Add logic to view specific activities and contributions here
             printf("No specific contribution data recorded yet.\n");
             return;
         }
@@ -183,12 +204,15 @@ void view_researcher_contributions(int account_number) {
     printf("Researcher with account number %d not found.\n", account_number);
 }
 
-// 管理研究人员账户的主菜单函数
+// Main menu function for managing researcher accounts
 void manageResearcherAccounts() {
     int choice;
     int account_number;
     char name[50];
     char email[50];
+
+    // Load data from file
+    load_researchers_from_file();
 
     printf("\nYou have entered the Manage Researcher Accounts module.\n");
     do {
@@ -201,7 +225,7 @@ void manageResearcherAccounts() {
         printf("Please select an option: ");
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input. Please enter a valid number.\n");
-            while (getchar() != '\n'); // 清除输入缓冲区
+            while (getchar() != '\n'); // Clear input buffer
             continue;
         }
 
@@ -210,19 +234,19 @@ void manageResearcherAccounts() {
             printf("Enter account number: ");
             if (scanf("%d", &account_number) != 1) {
                 printf("Invalid input. Please enter a valid account number.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             printf("Enter name: ");
             if (scanf("%49s", name) != 1) {
                 printf("Invalid input. Please re-enter the name.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             printf("Enter email: ");
             if (scanf("%49s", email) != 1) {
                 printf("Invalid input. Please re-enter the email.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             register_researcher(account_number, name, email);
@@ -231,19 +255,19 @@ void manageResearcherAccounts() {
             printf("Enter the account number of the researcher to edit: ");
             if (scanf("%d", &account_number) != 1) {
                 printf("Invalid input. Please enter a valid account number.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             printf("Enter new name: ");
             if (scanf("%49s", name) != 1) {
                 printf("Invalid input. Please re-enter the name.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             printf("Enter new email: ");
             if (scanf("%49s", email) != 1) {
                 printf("Invalid input. Please re-enter the email.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             edit_researcher_details(account_number, name, email);
@@ -252,7 +276,7 @@ void manageResearcherAccounts() {
             printf("Enter the account number of the researcher to delete: ");
             if (scanf("%d", &account_number) != 1) {
                 printf("Invalid input. Please enter a valid account number.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             delete_researcher(account_number);
@@ -261,7 +285,7 @@ void manageResearcherAccounts() {
             printf("Enter the account number of the researcher to view: ");
             if (scanf("%d", &account_number) != 1) {
                 printf("Invalid input. Please enter a valid account number.\n");
-                while (getchar() != '\n'); // 清除输入缓冲区
+                while (getchar() != '\n'); // Clear input buffer
                 continue;
             }
             view_researcher_contributions(account_number);
@@ -275,6 +299,8 @@ void manageResearcherAccounts() {
         }
     } while (choice != 5);
 }
+
+
 
 
 // 搜索和检查行星模块

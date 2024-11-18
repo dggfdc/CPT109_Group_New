@@ -1,0 +1,8 @@
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/CPT109_CW.dir
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/test_planet_manager.dir
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/test_researcher_manager.dir
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/test_search_manager.dir
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/test_statics_manager.dir
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/test_user_manager.dir
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+F:/Github/CPT109_Group_CW/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

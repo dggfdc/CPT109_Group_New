@@ -1,0 +1,3 @@
+"E:\Clion\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\CPT109_CW.dir/objects.a
+"E:\Clion\CLion 2024.2.3\bin\mingw\bin\ar.exe" qc CMakeFiles\CPT109_CW.dir/objects.a @CMakeFiles\CPT109_CW.dir\objects1.rsp
+"E:\Clion\CLion 2024.2.3\bin\mingw\bin\gcc.exe" -g -Wl,--whole-archive CMakeFiles\CPT109_CW.dir/objects.a -Wl,--no-whole-archive -o CPT109_CW.exe -Wl,--out-implib,libCPT109_CW.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CPT109_CW.dir\linkLibs.rsp

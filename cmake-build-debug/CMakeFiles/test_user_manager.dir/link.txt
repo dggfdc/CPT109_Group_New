@@ -1,0 +1,3 @@
+"E:\Clion\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\test_user_manager.dir/objects.a
+"E:\Clion\CLion 2024.2.3\bin\mingw\bin\ar.exe" qc CMakeFiles\test_user_manager.dir/objects.a @CMakeFiles\test_user_manager.dir\objects1.rsp
+"E:\Clion\CLion 2024.2.3\bin\mingw\bin\gcc.exe" -g -Wl,--whole-archive CMakeFiles\test_user_manager.dir/objects.a -Wl,--no-whole-archive -o test_user_manager.exe -Wl,--out-implib,libtest_user_manager.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\test_user_manager.dir\linkLibs.rsp

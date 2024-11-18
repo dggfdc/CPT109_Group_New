@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CPT109_CW",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "CPT109_CW::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CPT109_CW-Debug-90ae8ede4b84460633bd.json",
+					"name" : "CPT109_CW",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_planet_manager::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_planet_manager-Debug-3f421493b96945c11368.json",
+					"name" : "test_planet_manager",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_researcher_manager::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_researcher_manager-Debug-a59a243ab2abd0200b3e.json",
+					"name" : "test_researcher_manager",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_search_manager::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_search_manager-Debug-176d77079e4388737d26.json",
+					"name" : "test_search_manager",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_statics_manager::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_statics_manager-Debug-40b16502e1d63b990218.json",
+					"name" : "test_statics_manager",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_user_manager::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_user_manager-Debug-693f88601bc71793d452.json",
+					"name" : "test_user_manager",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "F:/Github/CPT109_Group_CW/cmake-build-debug",
+		"source" : "F:/Github/CPT109_Group_CW"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

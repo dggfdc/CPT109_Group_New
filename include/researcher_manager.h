@@ -2,16 +2,15 @@
 #define SEARCH_MANAGER_H
 
 // 定义结构体用于存储研究人员信息
-typedef struct {
-    int account_number;
+struct Researcher {
     char name[50];
-    char email[50];
-} Researcher;
+    char contributions[200];
+};
 
 void manageResearcherAccounts();
-void register_researcher(int account_number, char* name, char* email);
-void edit_researcher_details(int account_number, char* new_name, char* new_email);
-void delete_researcher(int account_number);
-void view_researcher_contributions(int account_number);
+void register_researcher(const char* name);
+void edit_researcher_details(const char* name, const char* new_name, const char* new_contributions);
+void delete_researcher(const char* name);
+void view_researcher_contributions(const char* name);
 
-#endif //SEARCH_MANAGER_H
+#endif // SEARCH_MANAGER_H

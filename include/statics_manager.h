@@ -1,1 +1,4 @@
+#ifndef SEARCH_MANAGER_H
+#define SEARCH_MANAGER_H
 
+#endif //SEARCH_MANAGER_H

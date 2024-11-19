@@ -1,5 +1,5 @@
-#ifndef STATICS_MANAGER_H
-#define STATICS_MANAGER_H
+#ifndef SEARCH_MANAGER_H
+#define SEARCH_MANAGER_H
 
 // 行星结构体
 #pragma pack(1) // 禁用结构体对齐

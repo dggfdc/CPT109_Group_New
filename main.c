@@ -4,7 +4,7 @@
 #include <tgmath.h>
 #include "planet_manager.h"
 #include "researcher_manager.h"
-#include "search_manager.h"
+#include "searchplanet_manager.h"
 #include "statics_manager.h"
 #include "user_manager.h"
 

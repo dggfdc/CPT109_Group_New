@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj"
-  "CMakeFiles/test_researcher_manager.dir/src/researcher_manager.c.obj.d"
   "CMakeFiles/test_researcher_manager.dir/tests/test_researcher_manager.c.obj"
   "CMakeFiles/test_researcher_manager.dir/tests/test_researcher_manager.c.obj.d"
   "libtest_researcher_manager.dll.a"

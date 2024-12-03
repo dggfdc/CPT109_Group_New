@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_statics_manager.dir/src/statics_manager.c.obj"
-  "CMakeFiles/test_statics_manager.dir/src/statics_manager.c.obj.d"
   "CMakeFiles/test_statics_manager.dir/tests/test_statics_manager.c.obj"
   "CMakeFiles/test_statics_manager.dir/tests/test_statics_manager.c.obj.d"
   "libtest_statics_manager.dll.a"

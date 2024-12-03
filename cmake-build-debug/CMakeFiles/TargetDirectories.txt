@@ -1,8 +1,9 @@
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/CPT109_CW.dir
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_planet_manager.dir
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_researcher_manager.dir
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_search_manager.dir
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_statics_manager.dir
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_user_manager.dir
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/edit_cache.dir
-F:/Github/CPT109_Group_CW/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/cpt109_lib.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/CPT109_CW.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_planet_manager.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_researcher_manager.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_search_manager.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_statics_manager.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/test_user_manager.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_planet_manager.dir/src/planet_manager.c.obj"
-  "CMakeFiles/test_planet_manager.dir/src/planet_manager.c.obj.d"
   "CMakeFiles/test_planet_manager.dir/tests/test_planet_manager.c.obj"
   "CMakeFiles/test_planet_manager.dir/tests/test_planet_manager.c.obj.d"
   "libtest_planet_manager.dll.a"

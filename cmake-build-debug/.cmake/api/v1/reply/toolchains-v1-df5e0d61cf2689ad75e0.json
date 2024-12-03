@@ -10,16 +10,16 @@
 				{
 					"includeDirectories" : 
 					[
-						"E:/Clion/CLion 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
-						"E:/Clion/CLion 2024.2.3/bin/mingw/include",
-						"E:/Clion/CLion 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
-						"E:/Clion/CLion 2024.2.3/bin/mingw/x86_64-w64-mingw32/include"
+						"D:/Applications/CLion/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+						"D:/Applications/CLion/CLion 2024.2.2/bin/mingw/include",
+						"D:/Applications/CLion/CLion 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+						"D:/Applications/CLion/CLion 2024.2.2/bin/mingw/x86_64-w64-mingw32/include"
 					],
 					"linkDirectories" : [],
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : []
 				},
-				"path" : "E:/Clion/CLion 2024.2.3/bin/mingw/bin/gcc.exe",
+				"path" : "D:/Applications/CLion/CLion 2024.2.2/bin/mingw/bin/gcc.exe",
 				"version" : "13.1.0"
 			},
 			"language" : "C",
@@ -33,7 +33,7 @@
 			"compiler" : 
 			{
 				"implicit" : {},
-				"path" : "E:/Clion/CLion 2024.2.3/bin/mingw/bin/windres.exe"
+				"path" : "D:/Applications/CLion/CLion 2024.2.2/bin/mingw/bin/windres.exe"
 			},
 			"language" : "RC",
 			"sourceFileExtensions" : 

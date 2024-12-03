@@ -1,0 +1,2 @@
+"D:\Applications\CLion\CLion 2024.2.2\bin\mingw\bin\ar.exe" qc libcpt109_lib.a CMakeFiles/cpt109_lib.dir/src/planet_manager.c.obj CMakeFiles/cpt109_lib.dir/src/researcher_manager.c.obj CMakeFiles/cpt109_lib.dir/src/user_manager.c.obj CMakeFiles/cpt109_lib.dir/src/searchplanet_manager.c.obj CMakeFiles/cpt109_lib.dir/src/statics_manager.c.obj
+"D:\Applications\CLion\CLion 2024.2.2\bin\mingw\bin\ranlib.exe" libcpt109_lib.a

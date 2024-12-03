@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_user_manager.dir/src/user_manager.c.obj"
-  "CMakeFiles/test_user_manager.dir/src/user_manager.c.obj.d"
   "CMakeFiles/test_user_manager.dir/tests/test_user_manager.c.obj"
   "CMakeFiles/test_user_manager.dir/tests/test_user_manager.c.obj.d"
   "libtest_user_manager.dll.a"

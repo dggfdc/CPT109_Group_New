@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "F:/Github/CPT109_Group_CW/src/planet_manager.c" "CMakeFiles/test_planet_manager.dir/src/planet_manager.c.obj" "gcc" "CMakeFiles/test_planet_manager.dir/src/planet_manager.c.obj.d"
-  "F:/Github/CPT109_Group_CW/tests/test_planet_manager.c" "CMakeFiles/test_planet_manager.dir/tests/test_planet_manager.c.obj" "gcc" "CMakeFiles/test_planet_manager.dir/tests/test_planet_manager.c.obj.d"
+  "D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/tests/test_planet_manager.c" "CMakeFiles/test_planet_manager.dir/tests/test_planet_manager.c.obj" "gcc" "CMakeFiles/test_planet_manager.dir/tests/test_planet_manager.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

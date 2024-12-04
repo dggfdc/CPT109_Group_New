@@ -106,6 +106,7 @@ void displayMenu()
 void managePlanetInfo()
 {
     printf("\nYou have entered the Manage Planet Information module.\n");
+    planet_manager();
     // 这里可以进一步实现管理星球信息的功能，如添加、编辑或删除星球等
 }
 
